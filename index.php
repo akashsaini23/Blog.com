@@ -1,7 +1,40 @@
 <?php
 require_once('config.php');
 $stl='style.css';
+$fn='function.php';
  extract($_REQUEST);
+ if(isset($_POST['sign'])){
+     $msg1='';
+   if(!(preg_match('/^([a-z A-Z]{3})+[a-z A-Z]*$/',$name))){
+       $msg1="Please Enter Name <br>";
+   }
+   elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+       $msg1="Please Enter Valid Email <br>";
+   }
+   elseif(!(preg_match('/[a-z]+/',$psw))){
+       $msg1="Atleast One Small Character <br>";
+   }
+   elseif(!(preg_match('/[A-Z]+/',$psw))){
+    $msg1="Atleast One Capital Character <br>";
+   }
+   elseif(!(preg_match('/[0-9]+/',$psw))){
+    $msg1="Atleast One number in Password <br>";
+   }
+   elseif(!(preg_match('/^([0-9]{11})$/',$mob))){
+       $msg1="Please Enter Mobile No.<br>";
+   }
+
+   if($msg1==""){
+   if(isset($_POST['sign'])){
+    $query="INSERT INTO `student`(`id`,`name`,`email`,`password`,`mobile`,`course`,`city`)
+   VALUES (NULL,'$name','$email','$psw','$mob','$course','$city')";
+    mysqli_query($master[0],$query);
+   }
+   else{
+       $msg1="cant Save Contact Admin";
+   }
+}
+ }
  //////////////////login////////////////////////////
  if(isset($_POST['login'])){
      $query="SELECT * FROM `student` where `email` = '$uid' and `password` = '$pwd'";
@@ -32,11 +65,7 @@ $stl='style.css';
        $res=mysqli_fetch_assoc($data);
 
        extract($_REQUEST);
-       if(isset($_POST['sign'])){
-        $query="INSERT INTO `student`(`id`,`name`,`email`,`password`,`mobile`,`course`,`city`)
-       VALUES (NULL,'$name','$email','$psw','$mob','$course','$city')";
-        mysqli_query($master[0],$query);
- }
+    
  if(@$_GET['pid']=='signout'){
      session_destroy();
      header('location:index.php');
@@ -52,22 +81,11 @@ $stl='style.css';
     <title>Blog.com</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="<?php echo $stl;?>">
-    <script>
-  
-      $(document).ready(function(){
-            $("#log").click(function(){
-                $('.sub').show();
-                $('.sub1').hide();
-            })
-            $("#reg").click(function(){
-                $('.sub1').show();
-                $('.sub').hide();
-            })
-        });
-     
-    </script>
+    <script src="<?php echo $fn;?>"></script>
    </head>
 <body>
+<p><?php echo @$msg1;?></p>
+
    
     <div class="nav">
         <h1>Blog.com</h1>
@@ -104,6 +122,8 @@ $stl='style.css';
     <!-----------------------------Registration------------------------------>
     <div class="sub1">
         <h1>SIGN UP!</h1>
+        <p><?php echo @$msg1;?></p>
+
         <form method="POST">
             <p><input type="text" name="name" placeholder="Fullname"class="txt"></p>
             <p><input type="email" name="email" placeholder="Email address.." class="txt"></p>
@@ -113,6 +133,7 @@ $stl='style.css';
             <p><input type="tel" name="mob" placeholder="Mobile Number" class="txt"></p>         
             <p><input type="submit" name="sign" value="Submit" class="btn"></p>
             <p><?php echo @$msg;?></p>
+
             </div>
     </div>
    </body>
