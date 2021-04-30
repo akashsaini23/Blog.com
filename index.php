@@ -1,7 +1,7 @@
 <?php
 require_once('config.php');
 $stl='style.css';
-$fn='function.php';
+$fn='function.js';
  extract($_REQUEST);
  if(isset($_POST['sign'])){
      $msg1='';
@@ -60,11 +60,11 @@ $fn='function.php';
      }
  }
  //////////////registration///////////////////////////////
-       $query="SELECT * FROM `student`  ";
-       $data = mysqli_query($master[0], $query);
-       $res=mysqli_fetch_assoc($data);
+    //    $query="SELECT * FROM `student`  ";
+    //    $data = mysqli_query($master[0], $query);
+    //    $res=mysqli_fetch_assoc($data);
 
-       extract($_REQUEST);
+    //    extract($_REQUEST);
     
  if(@$_GET['pid']=='signout'){
      session_destroy();
@@ -85,45 +85,47 @@ $fn='function.php';
    </head>
 <body>
 <p><?php echo @$msg1;?></p>
+   <header>
+       <div class="head fl">
+            <h1> <a href="./"> Blog.Com </a></h1>
+        </div>
 
-   
-    <div class="nav">
-        <h1>Blog.com</h1>
-        <ul>
-            <?php
-            if(@$_SESSION['email']==""){
-           echo '<li id="log">Login</li>
-                 <li id="reg">Registration</li>';
-                }
-           else{
-           echo '
-                 <li id="aa">Home</li>
-                 <li id="ab">Profile</li>
-                 <li id="ac"><a style="text-decoration: none; color:#fff;" href="?pid=signout">SignOut</a></li>';
-              }
-            ?>
-         
-           
-        </ul>
-
+         <div class="nav fr">
+                <ul>
+                    <?php
+                    if(@$_SESSION['email']==""){
+                   echo '<li id="log">Login</li>
+                         <li id="reg">Registration</li>';
+                        }
+                   else{
+                   echo '
+                         <li id="aa">Home</li>
+                         <li id="ab">Profile</li>
+                         <li id="ac"><a style="text-decoration: none; color:#fff;" href="?pid=signout">SignOut</a></li>';
+                      }
+                    ?>
+                </ul>
+      </div>
+      </header>
+    <div class="banner fl">
+    <div class="sub_ban">
     </div>
-    <div class="main">
+    </div>
+    <div class="main fr">
         <!-------------------------------login------------------------------>
         <div class="sub">
         <h1>User Login</h1>
-              <form method="POST">
-            <p><input type="email" name="uid" placeholder="Enter your email" class="txt"></p>
-            <p><input type="password" name="pwd" placeholder="Enter your password" class="txt"></p>
-            <p><input type="submit" name="login" value="login" class="btn" id="login"></p>
-            <p><?php echo @$msg;?></p>
-            
-        </form>
+            <form method="POST">
+               <p><input type="email" name="uid" placeholder="Enter your email" class="txt"></p>
+               <p><input type="password" name="pwd" placeholder="Enter your password" class="txt"></p>
+               <p><input type="submit" name="login" value="Login" class="btn" id="login"></p>
+               <p><?php echo @$msg;?></p>
+           </form>
     </div>
     <!-----------------------------Registration------------------------------>
     <div class="sub1">
         <h1>SIGN UP!</h1>
         <p><?php echo @$msg1;?></p>
-
         <form method="POST">
             <p><input type="text" name="name" placeholder="Fullname"class="txt"></p>
             <p><input type="email" name="email" placeholder="Email address.." class="txt"></p>
@@ -133,8 +135,7 @@ $fn='function.php';
             <p><input type="tel" name="mob" placeholder="Mobile Number" class="txt"></p>         
             <p><input type="submit" name="sign" value="Submit" class="btn"></p>
             <p><?php echo @$msg;?></p>
-
-            </div>
+        </div>
     </div>
    </body>
 </html>
