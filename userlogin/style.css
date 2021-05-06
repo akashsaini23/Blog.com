@@ -63,7 +63,7 @@ header{
 }
 .banner{
     height: 591px;
-    width: 70%;
+    width: 100%;
     background-image: url('img6.jpg');
     position: relative;
     background-size: 100% 100vh;
@@ -74,40 +74,36 @@ header{
     left: 5%;
     background: rgba(0, 0, 0, 0.5);
     height: 490px;
-    width: 90%;
+    width: 60%;
 }
 
-
-
 .main{
-    height: 591px;
-    width: 30%;
-    background-color: #66FCF1;
-
+    
+    top: 52px;
+    margin-right: 5%;
+    height: 490px;
+    width: 25%;
     position: relative;
+    background: rgba(0, 0, 0, 0.5);
 }
 .sub{
     height:300px;
-    width: 80%;
+    width: 100%;
     position: absolute;
-    left: 10%;
     top: 115px;
     display: none;
-    background-color: #18413e;
+    /* background-color: #18413e; */
     text-align: center;
     border-radius: 10px;
     }
 .sub1{
-    height:500px;
-    width: 80%;
-    background-color: #18413e;
+    height:430px;
+    width: 100%;
+    /* background-color: #18413e; */
     text-align: center;
     border-radius: 10px;
     position: absolute;
-    left: 10%;
-    top: 45px;
-    display: none;
-  
+    display: none;  
 }
 .main h1{
     text-align: center;

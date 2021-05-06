@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog.Com</title>
+    <script src="https://kit.fontawesome.com/7fac20cd86.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: cursive;
+        }
+        body{
+            background-image: url("img2.jpg");
+            background-size: 100% 100vh;
+        }
+        .main{
+            height: 300px;
+            width: 30%;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.4);
+            margin-top: 28vh;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        .main h1{
+            text-align: center;
+            color: blanchedalmond;
+            padding: 2%;
+        }
+        input{
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+        }
+        input[type=email]{
+            height: 40px;
+            width:70%;
+        }
+        input[type=password]{
+            height: 40px;
+            width:70%;
+        }input[type=submit]{
+            height: 40px;
+            width:70%;
+            font-size: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>
+        <i class="fas fa-user fa-2x"></i>
+        </h1>
+        <form action="">
+            <input type="email" name="aid" placeholder="Enter Admin Email" required>
+            <input type="password" name="apass" placeholder="Enter Admin Password" required>
+            <input type="submit" name="sign" value="LogIn">
+        </form>
+    </div>
+</body>
+</html>

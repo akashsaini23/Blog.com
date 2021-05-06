@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://kit.fontawesome.com/7fac20cd86.js" crossorigin="anonymous"></script>
+    <style>
+      *{margin: 0;padding: 0%;box-sizing: border-box;}
+      a{
+          text-decoration: none;
+      }
+      header{
+        background-color: #18413e;
+        height: 50px;
+        width: 100%;
+        display: block;
+        position:fixed;
+        top: 0%; 
+        box-shadow: 2px 2px 2px rgb(128, 117, 117);
+       
+      }
+      .head{
+          width: 95%;
+          margin: auto;
+       
+          height: 50px;
+      }
+      .head_left{
+          float: left;
+          
+          width: 30%;
+          height: 50px;
+
+      }
+      .head_left h2{
+          color: white;
+          padding: 2%;
+      }
+      .head_right{
+          float:right;
+          width: 70%;
+          height: 50px;
+      }
+      .head_right ul{
+          
+          text-align: right;
+      }
+      .head_right ul li{
+        display: inline;
+        color: white;
+        line-height: 50px;
+        padding: 1%;
+        cursor: pointer;
+      }
+    .head_right ul li a{
+        color: white;
+    }
+    .main_left{
+        width:20%;
+        float: left;
+        height: 580px;
+        position: fixed;
+        left: 0px;
+        top: 55px;
+        border-radius: 0px 10px 10px 0px;
+        box-shadow: 2px 2px 5px rgb(128, 117, 117);
+      
+    }
+        .main_left ul li{
+        background-color:  #44a8a2;
+        margin-top:6px;
+        padding: 3% 17%;
+    }
+    .main_left ul li a{
+        color: white;
+    }
+    .main_left ul li a i{
+        margin-right: 5px;
+    }
+    .main_left img{
+        height: 120px;
+        width: 100%;
+    }
+    .main_right{
+        width: 79%;
+        height: 800px;
+        background-color: tomato;
+        float: right;
+        margin-top:55px;
+        box-shadow: 2px 2px 5px black;
+        border-radius: 10px 0px;
+    }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="head_left">
+                <a href="#">
+                <h2><i class="fab fa-vaadin"></i>Akash saini</h2></a>
+            </div>
+            <div class="head_right">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PROFILE</a></li>
+                    <li><a href="#">SETTING</a></li>
+                    <li><a href="#">SIGNOUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="main_left">
+        <img src="img3.jpg" alt="" >
+        <ul>
+            <li><a href="?id=addpost"><i class="fas fa-calendar-plus"></i>Add Post</a></li>
+            <li><a href="?id=viewpost"><i class="fas fa-eye"></i>View Post</a></li>
+            <li><a href="?id=updatepost"><i class="fas fa-edit"></i>Update Post</a></li>
+            <li><a href="?id=deletepost"><i class="fas fa-backspace"></i>Delete Post</a></li>
+            <li><a href="?id=suspendpost"><i class="fas fa-ban"></i>Suspend Post</a></li>
+            <li><a href="?id=setting"><i class="fas fa-cogs"></i>Site Setting</a></li>
+            <li><a href="?id=newadmin"><i class="fas fa-user-plus"></i>Add New Admin</a></li>
+            <li><a href="?id=viewuser"><i class="fas fa-book-reader"></i>View User</a></li>
+            <li><a href="?id=suspenduser"><i class="fas fa-user-slash"></i>Suspend User</a></li>
+            <li><a href="?id=theme"><i class="fas fa-sliders-h"></i>Admin Theme</a></li>
+        </ul>
+    </div>
+    <div class="main_right"></div>
+</body>
+</html>

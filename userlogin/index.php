@@ -107,10 +107,10 @@ $fn='function.js';
                 </ul>
       </div>
       </header>
-    <div class="banner fl">
-    <div class="sub_ban">
+    <div class="banner">
+    <div class="sub_ban fl">
     </div>
-    </div>
+    
     <div class="main fr">
         <!-------------------------------login------------------------------>
         <div class="sub">
@@ -136,6 +136,7 @@ $fn='function.js';
             <p><input type="submit" name="sign" value="Submit" class="btn"></p>
             <p><?php echo @$msg;?></p>
         </div>
+    </div>
     </div>
    </body>
 </html>
