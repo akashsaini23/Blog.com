@@ -56,7 +56,7 @@ else if(@$_GET['id']=='theme'){
         <div class="head">
             <div class="head_left">
                 <a href="#">
-                <h2><i class="fab fa-vaadin"></i>Akash saini</h2></a>
+                <h2><i class="fab fa-vaadin"></i><?php echo $res['adminid'];?></h2></a>
             </div>
             <div class="head_right">
                 <ul>

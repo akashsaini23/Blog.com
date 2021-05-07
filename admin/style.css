@@ -1,4 +1,4 @@
-*{margin: 0;padding: 0%;box-sizing: border-box;}
+*{margin: 0;padding: 0%;box-sizing: border-box;font-family: sans-serif;}
 a{
     text-decoration: none;
 }
@@ -30,6 +30,7 @@ header{
 .head_left h2{
     color: white;
     padding: 2%;
+  
 }
 .head_right{
     float:right;
@@ -44,8 +45,14 @@ header{
   display: inline;
   color: white;
   line-height: 50px;
-  padding: 1%;
+  padding: 1.5%;
+
   cursor: pointer;
+}
+.head_right ul li:hover{
+  background-color: #44a8a2 ;
+  padding: 1.5%;
+  /* transform: scale(1.03); */
 }
 .head_right ul li a{
   color: white;
@@ -65,6 +72,7 @@ header{
   margin-top:6px;
   padding: 3% 17%;
   border-radius: 0px 3px 3px 0px;
+ 
 }
 .main_left ul li a{
   color: white;
@@ -78,6 +86,8 @@ header{
 }
 .main_left ul li:hover{
   transform: scale(1.03);
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgb(128, 117, 117);
   /* background-color:#18413e ; */
 }
 .main_right{
