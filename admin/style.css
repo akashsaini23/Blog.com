@@ -86,7 +86,7 @@ header{
 }
 .main_left ul li:hover{
   transform: scale(1.03);
-  border-radius: 20px;
+  border-radius: 0px 10px 10px 0px;
   box-shadow: 2px 2px 5px rgb(128, 117, 117);
   /* background-color:#18413e ; */
 }
