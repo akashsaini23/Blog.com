@@ -1,6 +1,16 @@
 <?php
 require_once('config.php');
 require_once 'function.php';
+$stl="style.css";
+$a_id=$_SESSION['adminEmail'];
+
+$query= "SELECT * FROM `admin` where `admin_email` = '$a_id'" ;
+$admin_data= mysqli_query($dbcon,$query);
+$admin_res= mysqli_fetch_array($admin_data);
+
+
+$query="INSERT INTO `blog_post` (`post_id`, `post_title`, `post_msg`, `post_cat`) VALUES (NULL, 'My First Blog', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In corporis eligendi alias laboriosam vel qui possimus similique itaque nesciunt perspiciatis?', 'uncategorized')";
+
 
 if($_SESSION['adminEmail']==""){
     header('location:index.php');
@@ -9,10 +19,7 @@ if(@$_GET['pid']=='signout'){
     session_destroy();
     header('location:index.php');
 }
-$stl="style.css";
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +35,7 @@ $stl="style.css";
         <div class="head">
             <div class="head_left">
                 <a href="#">
-                <h2><i class="fab fa-vaadin"></i><?php echo $res['adminid'];?></h2></a>
+                <h2><i class="fab fa-vaadin"></i><?php echo $admin_res['admin_name'];?></h2></a>
             </div>
             <div class="head_right">
                 <ul>
@@ -59,7 +66,8 @@ $stl="style.css";
       <?php
       $page_id=@$_GET['id'];
        
-      page($page_id);
+      page($page_id,$dbcon);
+
      
       
       ?>

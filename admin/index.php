@@ -1,12 +1,12 @@
 <?php
 require_once('config.php');
   if(isset($_POST['sign'])){
-
-      $query= "SELECT * FROM `admin` WHERE `admin_email`='$aid' and `admin_pass`='$apass'";
+      extract($_POST);
+      $query= "SELECT * FROM `admin` WHERE `admin_email` = '$aid' and `admin_pass` = '$apass'";
       $admin_data= mysqli_query($dbcon,$query);
       $admin_res= mysqli_fetch_array($admin_data);
 
-       extract($_POST);
+
        if(empty($aid) and empty($apass) ){
            $msg="Please Enter <b>Admin Id & Password</b>";
        }
@@ -17,9 +17,9 @@ require_once('config.php');
         $msg="Please Enter <b>Password</b>";
        }
        else{
-           if($admin_res['adminemail']==$aid and $admin_res['adminpass']==$apass)
+           if($admin_res['admin_email']==$aid && $admin_res['admin_pass']==$apass)
            {
-               $_SESSION['adminEmail']=$admin_res['adminemail'];
+               $_SESSION['adminEmail']=$admin_res['admin_email'];
                 header('location:admin.php');
            }
            else{
@@ -47,7 +47,7 @@ require_once('config.php');
             font-family: cursive;
         }
         body{
-            background-image: url("images/img1.jpg");
+            background-image: url("images/img.jpg");
             background-size: 100% 100vh;
         }
         .main{
@@ -95,9 +95,7 @@ require_once('config.php');
     </style>
 </head>
 <body>
-   <?php
-   print_r($admin_res['admin_email']);
-   ?>
+  
     <div class="main">
         <h1>
         <i class="fas fa-user fa-2x"></i>
