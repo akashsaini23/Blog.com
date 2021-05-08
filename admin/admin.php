@@ -1,5 +1,6 @@
 <?php
 require_once('config.php');
+require_once 'function.php';
 
 if($_SESSION['adminEmail']==""){
     header('location:index.php');
@@ -9,36 +10,7 @@ if(@$_GET['pid']=='signout'){
     header('location:index.php');
 }
 $stl="style.css";
-if(@$_GET['id']=='addpost'){
-    header('location:navigation page/addpost.php');
-}
-else if(@$_GET['id']=='viewpost'){
-    header('location:navigation page/viewpost.php');
-}
-else if(@$_GET['id']=='updatepost'){
-    header('location:navigation page/updatepost.php');
-}
-else if(@$_GET['id']=='deletepost'){
-    header('location:navigation page/deletepost.php');
-}
-else if(@$_GET['id']=='suspendpost'){
-    header('location:navigation page/suspendpost.php');
-}
-else if(@$_GET['id']=='setting'){
-    header('location:navigation page/sitesetting.php');
-}
-else if(@$_GET['id']=='newadmin'){
-    header('location:navigation page/newadmin.php');
-}
-else if(@$_GET['id']=='viewuser'){
-    header('location:navigation page/viewuser.php');
-}
-else if(@$_GET['id']=='suspenduser'){
-    header('location:navigation page/suspenduser.php');
-}
-else if(@$_GET['id']=='theme'){
-    header('location:navigation page/theme.php');
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +56,13 @@ else if(@$_GET['id']=='theme'){
         </ul>
     </div>
     <div class="main_right">
-        <h1>Welcome</h1>
+      <?php
+      $page_id=@$_GET['id'];
+       
+      page($page_id);
+     
+      
+      ?>
     </div>
 </body>
 </html>
