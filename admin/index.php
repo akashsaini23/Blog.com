@@ -47,7 +47,7 @@ require_once('config.php');
             font-family: cursive;
         }
         body{
-            background-image: url("images/img.jpg");
+            background-image: url("images/img1.jpg");
             background-size: 100% 100vh;
         }
         .main{

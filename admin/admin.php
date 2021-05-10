@@ -11,6 +11,17 @@ $admin_res= mysqli_fetch_array($admin_data);
 
 $query="INSERT INTO `blog_post` (`post_id`, `post_title`, `post_msg`, `post_cat`) VALUES (NULL, 'My First Blog', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In corporis eligendi alias laboriosam vel qui possimus similique itaque nesciunt perspiciatis?', 'uncategorized')";
 
+///////////////////////////////////add post//////////////////////////
+if(isset($_POST['post'])){
+    extract($_POST);
+    $query="INSERT INTO `blog_post` (`post_id`, `post_title`, `post_msg`, `post_cat`) VALUES (NULL, '$post_title', '$post_msg', 'uncategorized')";
+    mysqli_query($dbcon,$query);
+    $msg="saved Succesful";
+}
+else{
+    $msg="can't saved";
+}
+
 
 if($_SESSION['adminEmail']==""){
     header('location:index.php');
@@ -66,10 +77,9 @@ if(@$_GET['pid']=='signout'){
       <?php
       $page_id=@$_GET['id'];
        
-      page($page_id,$dbcon);
+      page($page_id,$dbcon,$a_id);
 
-     
-      
+   
       ?>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <?php
-function page($page_id,$dbcon)
+function page($page_id,$dbcon,$a_id)
 {
     if($page_id=='addpost'){
     require_once "{$page_id}.php";
