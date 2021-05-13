@@ -1,36 +1,32 @@
 <?php
-   if($a_id==""){
-       header("location:error.php");
-   }
-?>
-<h1>Welcome to Blog</h1>
-<?php 
+require_once('config.php');
+require_once 'function.php';
+$a_id=$_SESSION['adminEmail'];
+
+$query= "SELECT * FROM `admin` where `admin_email` = '$a_id'" ;
+$admin_data= mysqli_query($dbcon,$query);
+$admin_res= mysqli_fetch_array($admin_data);
+
+if($_SESSION['adminEmail']==""){
+    header("location:error.php");
+}
+if(@$_GET['pid']=='signout'){
+    session_destroy();
+    header('location:index.php');
+}
+#################### view post#####################
 $query= "SELECT * FROM `blog_post` " ;
 $post_data= mysqli_query($dbcon,$query);
 $post_res= mysqli_fetch_array($post_data);
-
-
-  
-    // echo $post_res['post_title'];
-    // echo "<br>";
-    // echo $post_res['post_msg'];
-
- 
-// echo "<h1> $post_res[1] </h1>";
-// echo "<br>";
-// echo "<h3> $post_res[2] </h3>";
- ?>
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
-     <style>
+##################################################
+$headr=new temp();
+$headr->head("View Post",$admin_res['admin_style']);
+$headr->nav();
+?>
+    <style>
          .main{
              margin: auto;
-             margin-top: 5%;
+             margin-top: 3%;
              height: 1200px;
              width: 90%;
              border: 2px solid  ;
@@ -52,8 +48,7 @@ $post_res= mysqli_fetch_array($post_data);
              border: 1px solid #18413e;
          }
      </style>
- </head>
- <body>
+     <h1>Welcome to Blog</h1>
      <div class="main">
      <?php
       while($post_res = mysqli_fetch_array($post_data)){
@@ -66,15 +61,11 @@ $post_res= mysqli_fetch_array($post_data);
                <p><?php  echo $post_res['post_msg']; ?></p>
             </div>
             
-      <?php           
+    <?php           
         }
         mysqli_close($dbcon);
-        ?>
-
-     
-     
-    
-    
-     </div>
- </body>
- </html>
+    ?>
+    </div>
+<?php
+$headr->footer();
+?> 

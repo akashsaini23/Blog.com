@@ -15,11 +15,11 @@ if(@$_GET['pid']=='signout'){
     header('location:index.php');
 }
 $headr=new temp();
-$headr->head("Update Post",$admin_res['admin_style']);
+$headr->head("Suspend User",$admin_res['admin_style']);
 $headr->nav();
 ?>
 
-   <h1>Update Post</h1>
+   <h1>Suspend User</h1>
 
 <?php
 $headr->footer();
