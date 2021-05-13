@@ -42,7 +42,7 @@
         <input type="text" name="post_title" placeholder="Blog Tittle">
         <textarea name="post_msg"  cols="70" rows="15"></textarea>
         <input type="submit" name="post" value="Submit Post">
-        <p><?php echo @$msg;?></p>
+        <p><?php echo $msg;?></p>
     </form>
     </div>
 </body>
