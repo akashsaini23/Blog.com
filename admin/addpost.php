@@ -63,21 +63,27 @@ $headr->nav();
            margin-top: 30px
         }
         input[type=submit]{
-            height: 40px;
-            width: 20%;
-            font-size:20px;
-            background: rgb(250, 80, 80);
-            color: white;
-        }
+             height: 40px;
+             width: 16%;
+             margin-top:10px ;
+             border-radius: 10px;
+             border: 2px solid rgb(248, 143, 143);
+            
+             font-size: 20px;
+             background-color: rgb(8, 65, 65);
+             color: #fff;
+         }
+         input[type=submit]:hover{
+             background-color: rgb(33, 172, 190);
+             box-shadow: 1px 3px 4px rgb(36, 35, 35);
+         }
         select{
             height: 40px;
            width: 70%;
            margin-bottom: 10px;
            margin-top: 10px
         }
-        input[type=submit]:hover{
-            background-color: rgb(9, 49, 49);
-        }
+       
     </style>
 
 <h1>Add New Post</h1>
