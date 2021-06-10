@@ -2,11 +2,10 @@
 require_once('config.php');
 require_once 'function.php';
 $a_id=$_SESSION['adminEmail'];
-
+########################################################
 $query= "SELECT * FROM `admin` where `admin_email` = '$a_id'" ;
 $admin_data= mysqli_query($dbcon,$query);
 $admin_res= mysqli_fetch_array($admin_data);
-
 ############ add post ##################################
 if(isset($_POST['post'])){
     extract($_POST);
@@ -29,63 +28,13 @@ if(isset($_POST['post'])){
     }
 }
 ####################################################
-if($_SESSION['adminEmail']==""){
-    header("location:error.php");
-}
+
 #################logout#############################
-if(@$_GET['pid']=='signout'){
-    session_destroy();
-    header('location:index.php');
-}
+
 $headr=new temp();
 $headr->head("Add Post",$admin_res['admin_style']);
 $headr->nav();
 ?>
-
-<style>
-        .box{
-            height: 450px;
-            width: 80%;
-            margin: auto;
-            margin-top: 3%;
-            border: 2px double;
-        }
-        input{
-            display: block;
-            margin: auto;
-            margin-top: 10px;
-
-        }
-        input[type=text]{
-            height: 40px;
-           width: 70%;
-           margin-bottom: 10px;
-           margin-top: 30px
-        }
-        input[type=submit]{
-             height: 40px;
-             width: 16%;
-             margin-top:10px ;
-             border-radius: 10px;
-             border: 2px solid rgb(248, 143, 143);
-            
-             font-size: 20px;
-             background-color: rgb(8, 65, 65);
-             color: #fff;
-         }
-         input[type=submit]:hover{
-             background-color: rgb(33, 172, 190);
-             box-shadow: 1px 3px 4px rgb(36, 35, 35);
-         }
-        select{
-            height: 40px;
-           width: 70%;
-           margin-bottom: 10px;
-           margin-top: 10px
-        }
-       
-    </style>
-
 <h1>Add New Post</h1>
     <div class="box">
     <form method="POST">
@@ -103,7 +52,6 @@ $headr->nav();
         <p><?php echo @$msg;?></p>
     </form>
     </div>
-
 <?php
 $headr->footer();
 ?>

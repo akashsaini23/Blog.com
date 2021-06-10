@@ -1,6 +1,14 @@
 <?php
   class temp{
     public function head($admin_name,$css='style.css'){
+        if(@$_GET['pid']=='signout'){
+            session_destroy();
+            header('location:index.php');
+        }
+        ######################################
+        if($_SESSION['adminEmail']==""){
+            header("location:error.php");
+        }
          echo '<!DOCTYPE html>';
          echo '<html lang="en">';
          echo '<head>';
@@ -10,6 +18,8 @@
          echo "<title>Admin Panel</title>";
          echo '<script src="https://kit.fontawesome.com/7fac20cd86.js" crossorigin="anonymous"></script>';
          echo "<link rel='stylesheet' href=$css>";
+         echo "<link rel='stylesheet' href=pstyle.css>";
+
          echo '</head>';
          echo '<body>';
          echo '<header>';

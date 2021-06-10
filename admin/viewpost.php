@@ -24,29 +24,7 @@ $headr->head("View Post",$admin_res['admin_style']);
 $headr->nav();
 ?>
     <style>
-         .main{
-             margin: auto;
-             margin-top: 3%;
-             height: 1200px;
-             width: 90%;
-             border: 2px solid  ;
-         }
-         .sub{
-             height: 40px;
-             text-align: center;
-             width: 80%;
-             margin: auto;
-             margin-top: 3%;
-             border: 1px solid #18413e;
-             color:#18413e;
-         }
-         .cont{
-             height: 300px;
-             width: 80%;
-             margin: auto;
-             text-align: center;
-             border: 1px solid #18413e;
-         }
+      
      </style>
      <h1>Welcome to Blog</h1>
      <div class="main">
