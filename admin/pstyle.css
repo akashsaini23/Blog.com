@@ -42,7 +42,7 @@ select{
 .main{
     margin: auto;
     margin-top: 3%;
-    height: 1200px;
+    height: 2200px;
     width: 90%;
     border: 2px solid  ;
 }
@@ -75,4 +75,12 @@ select{
 }
 .btn:hover{
    background-color: rgb(33, 172, 190);box-shadow: 1px 3px 4px rgb(36, 35, 35);
+}
+#cati{
+    height: 40px;
+    text-align: left;
+    width: 80%;
+    margin: auto;
+    border: 1px solid #18413e;
+    color:#18413e;
 }
