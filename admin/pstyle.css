@@ -55,6 +55,7 @@ select{
     border: 1px solid #18413e;
     color:#18413e;
 }
+
 .cont{
     height: 300px;
     width: 80%;
@@ -62,8 +63,6 @@ select{
     text-align: center;
     border: 1px solid #18413e;
 }
-
-
 
 .btn{
    padding: 1%;
@@ -76,11 +75,30 @@ select{
 .btn:hover{
    background-color: rgb(33, 172, 190);box-shadow: 1px 3px 4px rgb(36, 35, 35);
 }
-#cati{
+.sub1{
     height: 40px;
     text-align: left;
     width: 80%;
     margin: auto;
+    padding: 1%;
     border: 1px solid #18413e;
-    color:#18413e;
-}
+    color:#fff;
+  }
+  .sub1 ul li{
+    display: inline;
+ 
+
+  }
+  .sub1 ul li a{
+    color: #fff;
+    padding:1%;
+  }
+  .a{
+  
+    background-color: green;
+  }
+  .s{
+    background-color: red;
+   
+  
+  }

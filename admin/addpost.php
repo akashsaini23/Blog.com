@@ -39,7 +39,7 @@ $headr->nav();
     <div class="box">
     <form method="POST">
         <input type="text" name="post_title" placeholder="Blog Tittle">
-        <textarea name="post_msg"  cols="82" rows="15"></textarea>
+        <textarea name="post_msg"  cols="77" rows="15"></textarea>
         <select name="post_cat" >
             <option>Uncategorized</option>
             <option>Javascript</option>

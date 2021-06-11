@@ -18,7 +18,7 @@
          echo "<title>Admin Panel</title>";
          echo '<script src="https://kit.fontawesome.com/7fac20cd86.js" crossorigin="anonymous"></script>';
          echo "<link rel='stylesheet' href=$css>";
-         echo "<link rel='stylesheet' href=pstyle.css>";
+        //  echo "<link rel='stylesheet' href=pstyle.css>";
 
          echo '</head>';
          echo '<body>';

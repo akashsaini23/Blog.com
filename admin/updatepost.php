@@ -50,7 +50,7 @@ if(isset($_POST['update'])){
        <form method="POST">
        <input type="hidden" name="hpostid" value="<?php echo $post_res['post_id']; ?>" >   
         <input type="text" name="post_title" placeholder="Blog Tittle" value="<?php  echo $post_res['post_title'];?>">
-         <textarea name="post_msg"  cols="82" rows="15"  ><?php  echo $post_res['post_msg']; ?></textarea>
+         <textarea name="post_msg"  cols="77" rows="15"  ><?php  echo $post_res['post_msg']; ?></textarea>
          <select name="post_cat"  value="" >
             <option><?php  echo $post_res['post_cat']; ?></option>
             <option>Uncategorized</option>

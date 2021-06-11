@@ -22,6 +22,22 @@ $post_res= mysqli_fetch_array($post_data);
 $headr=new temp();
 $headr->head("View Post",$admin_res['admin_style']);
 $headr->nav();
+########################SUSPEND/active##################
+if(@$_GET['action']=='act'){
+    $uaid=$_GET['pid'];
+    $query="UPDATE `blog_post` set  `post_status`=1 where `post_id`='$uaid' ";
+    mysqli_query($dbcon,$query);
+    header('location:viewpost.php');
+    
+}
+if(@$_GET['action']=='sus'){
+    $usid=$_GET['pid'];
+    $query="UPDATE `blog_post` set  `post_status`=0 where `post_id`='$usid' ";
+    mysqli_query($dbcon,$query);
+    header('location:viewpost.php');
+    
+}
+########################################################
 ?>
     <style>
       
@@ -39,8 +55,20 @@ $headr->nav();
                <p><?php  echo $post_res['post_msg']; ?></p>
             </div>
             
-            <div id="cati">
-                <p>Category-<?php  echo $post_res['post_cat']; ?></p>
+            <div class="sub1">
+                <p> <span style="color:#18413e;font-weight:600"> Category:</span><?php  echo $post_res['post_cat'];?></p>
+            </div>
+            <div class="sub1">
+                <ul>
+                    <?php
+                    if(@$post_res['post_status']==1){
+                        echo "<li><a class='s' href='?pid=$post_res[post_id]&action=sus'>Suspend</a></li>";
+                    }
+                    else if(@$post_res['post_status']==0){
+                        echo "<li><a class='a' href='?pid=$post_res[post_id]&action=act'>Active</a></li>";
+                    }
+                    ?>
+                </ul>
             </div>
         
             
