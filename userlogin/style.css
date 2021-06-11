@@ -1,134 +1,32 @@
-*{
-    margin: 0;
-    padding: 0%;
-    box-sizing: border-box;
-}
-.fl{
-    float: left;
-}
-.fr{
-    float: right;
-}
-.clr{
-    clear: both;
-}
-a{
-    text-decoration: none;
-}
-header{
-    height: 80px;
-    width: 100%;
-    background-color: #18413e;
-    color: #fff;
-    display: block;
-}
-.head{
-   width: 30%;
-   height: 80px;
-   padding: 1%;
-  
-}
-.head h1{
-    padding: 1.5%;
-    font-family: sans-serif;
-}
-.head h1 a{
-    color: #66FCF1;
-}
-.nav{
-  width: 70%;
-  height: 80px;
- 
-}
-
-.nav ul{
-    text-align: right;
-  
-}
-.nav ul li{
-    display: inline;
-    font-size: 22px;
-    padding:1% 2%;
-    color: #66FCF1;
-    line-height: 80px;
-    margin-right: 2%;
-    background-color: rgb(16, 105, 105);
-    border-radius: 15px;
-    font-weight: 500;
-    font-family: sans-serif;
-    cursor: pointer;
-}
-.nav ul li:hover{
-    background-color: rgb(101, 158, 158);
-}
-.banner{
-    height: 591px;
-    width: 100%;
-    background-image: url('img6.jpg');
-    position: relative;
-    background-size: 100% 100vh;
-}
-.sub_ban{
-    position: absolute;
-    top: 52px;
-    left: 5%;
-    background: rgba(0, 0, 0, 0.5);
-    height: 490px;
-    width: 60%;
-}
-
-.main{
-    
-    top: 52px;
-    margin-right: 5%;
-    height: 490px;
-    width: 25%;
-    position: relative;
-    background: rgba(0, 0, 0, 0.5);
-}
 .sub{
-    height:300px;
-    width: 100%;
-    position: absolute;
-    top: 115px;
-    display: none;
-    /* background-color: #18413e; */
-    text-align: center;
-    border-radius: 10px;
-    }
-.sub1{
-    height:430px;
-    width: 100%;
-    /* background-color: #18413e; */
-    text-align: center;
-    border-radius: 10px;
-    position: absolute;
-    display: none;  
-}
-.main h1{
-    text-align: center;
-    color: #66FCF1;
-    font-size: 40px;
-    padding: 4%;
-    font-family: 'Fredericka the Great', cursive;
-    }
-.txt{
-    width:80%;
     height: 40px;
-    margin-bottom: 10px;
-    font-size: 18px;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 3%;
+    border: 1px solid #18413e;
+    color:#fff;
+    background-color: rgb(49, 119, 224);
+  }
+  .sub h2{
+    line-height: 35px;
+  }
+  
+  .cont{
+    height: 300px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid #18413e;
+  }
+  
 
-    }
-.btn{
-    width: 39%;
+  .sub1{
     height: 40px;
-    margin-top: 20px;
-    font-size: 30px;
-    color: #66FCF1;
-    background-color: rgb(16, 105, 105);
-    border-radius: 15px;
-    border: solid 1px #66FCF1 ;
-    }
-.btn:hover{
-    background-color: teal;
-}    
+    text-align: left;
+    width: 90%;
+    margin: auto;
+    padding: 1%;
+    border: 1px solid #18413e;
+    color:#fff;
+  }
