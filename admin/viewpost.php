@@ -39,6 +39,11 @@ $headr->nav();
                <p><?php  echo $post_res['post_msg']; ?></p>
             </div>
             
+            <div id="cati">
+                <p>Category-<?php  echo $post_res['post_cat']; ?></p>
+            </div>
+        
+            
     <?php           
         }
         mysqli_close($dbcon);
