@@ -6,6 +6,9 @@ $query="SELECT * from `siteinfo`";
 $site_data= mysqli_query($dbcon,$query);
 $site_res= mysqli_fetch_array($site_data);
 $css=$site_res['site_theme'];
+// if($_GET['action']=='login'){
+//   echo '<h1>hello</h1>';
+// }
 ?>
 
 <!doctype html>
@@ -26,7 +29,7 @@ $css=$site_res['site_theme'];
   <body>
       <div class="container-fluid ">
   <nav class="navbar navbar-expand-lg  navbar-dark bg-primary ">
-  <a class="navbar-brand text-white" href="#"><?php echo $site_res['site_title'];?></a>
+  <a class="navbar-brand text-white" href="./"><?php echo $site_res['site_title'];?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -52,8 +55,9 @@ $css=$site_res['site_theme'];
           User Section
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">LogIn</a>
-          <a class="dropdown-item" href="#">Registration</a>
+        
+          <a class="dropdown-item" href="?pid=&action=login">LogIn</a>
+          <a class="dropdown-item" href="?pid=&action=reg">Registration</a>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
