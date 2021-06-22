@@ -6,9 +6,6 @@ $query="SELECT * from `siteinfo`";
 $site_data= mysqli_query($dbcon,$query);
 $site_res= mysqli_fetch_array($site_data);
 $css=$site_res['site_theme'];
-// if($_GET['action']=='login'){
-//   echo '<h1>hello</h1>';
-// }
 
 ?>
 
@@ -46,7 +43,7 @@ $css=$site_res['site_theme'];
         <a class="nav-link " href="#">CSS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#">JavaScript</a>
+        <a class="nav-link " href="javascript.php">JavaScript</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="#">PHP</a>

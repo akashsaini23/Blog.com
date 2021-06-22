@@ -1,6 +1,16 @@
 <?php
 require_once ('config.php');
-require_once ('header.php');
+require_once ('function.php');
+// require_once ('header.php');
+
+$query="SELECT * from `siteinfo`";
+$site_data= mysqli_query($dbcon,$query);
+$site_res= mysqli_fetch_array($site_data);
+//$css=$site_res['site_theme'];
+##################################################
+##################################################
+$fun=new nav();
+$fun->category($site_res['site_title'],$site_res['site_theme']);
 
 $query="SELECT * from `blog_post`";
 $post_data= mysqli_query($dbcon,$query);
@@ -92,20 +102,20 @@ if(isset($_POST['login'])){
 
  <div class="container ">
  <?php
-if(isset($msg)){
+    if(isset($msg)){
 ?>
      <div class="alert <?php echo $status;?>  alert-dismissable"><?php echo @$msg;?><a style="cursor: pointer;" data-dismiss="alert" class="close" >&times;</a></div>
 <?php
-}
+      }
 ?>
 
 
-   <div class="row border border-primary mt-5  bg-info mr-1">
 
         <!-------------------------------login------------------------------>
         <?php
           if(@$_GET['action']=='login'){
-     ?>
+       ?>
+   <div class="row border border-primary mt-5  bg-info mr-1">
      <div class="col-md-7 m-auto " >
     
      <form class="mt-5 mb-5 text-white " method="POST">
@@ -126,6 +136,7 @@ if(isset($msg)){
          <button type="submit" name="login" class="btn btn-primary">Submit</button>
      </form>
      </div>
+   </div>
     <?php
      }
     ?>
@@ -134,6 +145,7 @@ if(isset($msg)){
      <?php  
        if(@$_GET['action']=='reg'){
      ?>
+   <div class="row border border-primary mt-5  bg-info mr-1">
          
      <div class="col-md-7 m-auto ">
     
@@ -169,22 +181,25 @@ if(isset($msg)){
          <button type="submit" name="sign" class="btn btn-primary">Submit</button>
      </form>
      </div>
+     </div>
       <?php       
           
         }
            
      ?>
-      
-     </div>
+ 
 </div>
+
+
+
 <div class="container mt-2">
       <div class="row">
-          <div class="col-md-9 border border-primary">
+          <div class="col-md-9 border border-primary pb-4">
           <?php
            while($post_res = mysqli_fetch_array($post_data)){
           ?>
              <div class="card card-info mt-4 border border-primary">
-             <div class="card-heading bg-info text-white text-center "><?php  echo $post_res['post_title']; ?></div>
+             <div class="card-heading bg-info text-white text-center "><h3><?php  echo $post_res['post_title']; ?></h3></div>
              <div class="card-body"><?php  echo $post_res['post_msg']; ?></div>
              <div class="card-footer bg-info">Category:<?php  echo $post_res['post_cat'];?></div>
              </div>
