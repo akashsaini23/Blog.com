@@ -9,6 +9,7 @@ $css=$site_res['site_theme'];
 // if($_GET['action']=='login'){
 //   echo '<h1>hello</h1>';
 // }
+
 ?>
 
 <!doctype html>

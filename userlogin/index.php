@@ -10,38 +10,49 @@ $query="SELECT * from `aside`";
 $aside_data= mysqli_query($dbcon,$query);
 $aside_res= mysqli_fetch_array($aside_data);
 
-extract($_REQUEST);
 //////////////////Registration///////////////////////////
 
+extract($_REQUEST);
 if(isset($_POST['sign'])){
-    $msg1='';
+    $msg='';
+    
+    extract($_POST);
   if(!(preg_match('/^([a-z A-Z]{3})+[a-z A-Z]*$/',$name))){
-      $msg1="Please Enter Name <br>";
+      $msg.="Please Enter Name <br>";
+      $status='alert-danger';
   }
   elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-      $msg1="Please Enter Valid Email <br>";
+      $msg.="Please Enter Valid Email <br>";
+      $status='alert-danger';
   }
   elseif(!(preg_match('/[a-z]+/',$psw))){
-      $msg1="Atleast One Small Character <br>";
+      $msg.="Atleast One Small Character <br>";
+      $status='alert-danger';
   }
   elseif(!(preg_match('/[A-Z]+/',$psw))){
-   $msg1="Atleast One Capital Character <br>";
+   $msg.="Atleast One Capital Character <br>";
+   $status='alert-danger';
   }
   elseif(!(preg_match('/[0-9]+/',$psw))){
-   $msg1="Atleast One number in Password <br>";
+   $msg.="Atleast One number in Password <br>";
+   $status='alert-danger';
   }
   elseif(!(preg_match('/^([0-9]{11})$/',$mob))){
-      $msg1="Please Enter Mobile No.<br>";
+      $msg.="Please Enter Mobile No.<br>";
+      $status='alert-danger';
   }
 
-  if($msg1==""){
+  if($msg==""){
   if(isset($_POST['sign'])){
    $query="INSERT INTO `student`(`id`,`name`,`email`,`password`,`mobile`,`address`,`course`,`city`)
   VALUES (NULL,'$name','$email','$psw','$mob','$addr','$course','$city')";
    mysqli_query($master[2],$query);
+   $msg="<b>Registartion Successful<b>";
+   $status='alert-success';
   }
   else{
-      $msg1="cant Save Contact Admin";
+      $msg="cant Save Contact Admin";
+      $status='alert-danger';
   }
 }
 }
@@ -52,45 +63,52 @@ if(isset($_POST['login'])){
     $res = mysqli_fetch_assoc($data);
     if(empty($uid)&&($pwd)){
         $msg="Please Enter Valid <b>Email and Password</b> ";
+        $status='alert-danger';
     }
     elseif($uid==""){
        $msg="Please Enter Valid <b>Email</b> ";
+       $status='alert-danger';
     }
     elseif($pwd==""){
-        $msg="Please Enter Valid <bPassword</b> ";
+        $msg="Please Enter Valid <b>Password</b> ";
+        $status='alert-danger';
     }
     else{
         if($res['email']==$uid && $res['password']==$pwd){
             $_SESSION['email']=$uid;
-            header('location:./');
             $msg="<b>Login Successful<b>";
+            $status='alert-success';
+            header('location:../admin/index.php');
+
         }
         else{
            $msg="Please Enter valid <b>Email&Password!<b>";
+           $status='alert-danger';
           }
     }
 }
-
-
-if(@$_POST['login']==1){
 ?>
-     <div class="alert alert-success" role="alert">
-     <?php echo @$msg;?>
-    </div>
-    <?php
-}
 
-?>
 
  <div class="container ">
-   <div class="row border border-primary mt-5  bg-info mr-1">
-        <!-------------------------------login------------------------------>
+ <?php
+if(isset($msg)){
+?>
+     <div class="alert <?php echo $status;?>  alert-dismissable"><?php echo @$msg;?><a style="cursor: pointer;" data-dismiss="alert" class="close" >&times;</a></div>
+<?php
+}
+?>
 
-     <div class="col-md-7 m-auto " >
-     <?php
+
+   <div class="row border border-primary mt-5  bg-info mr-1">
+
+        <!-------------------------------login------------------------------>
+        <?php
           if(@$_GET['action']=='login'){
      ?>
-     <form class="mt-5 mb-5 text-white ">
+     <div class="col-md-7 m-auto " >
+    
+     <form class="mt-5 mb-5 text-white " method="POST">
      <h1>Log In</h1>
         <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -107,51 +125,56 @@ if(@$_POST['login']==1){
         </div>
          <button type="submit" name="login" class="btn btn-primary">Submit</button>
      </form>
+     </div>
     <?php
      }
     ?>
-     </div>
+     
      <!-----------------------------Registration------------------------------>
-     <div class="col-md-7 m-auto ">
      <?php  
-         if(@$_GET['action']=='reg'){
-          ?>
-          
-          <form class="mt-5 mb-5 text-white ">
-          <h1>Registration</h1>
-       <div class="form-group">
-        <label for="">Full Name</label>
+       if(@$_GET['action']=='reg'){
+     ?>
+         
+     <div class="col-md-7 m-auto ">
+    
+    
+      <form class="mt-5 mb-5 text-white " method="POST">
+              <h1>Registration</h1>
+      <div class="form-group">
+           <label for="">Full Name</label>
         <input type="text" class="form-control"  name="name" placeholder="Enter Name">
-        <label for="exampleInputEmail1">Email address</label>
+           <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+           <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" name="psw" id="exampleInputPassword1" placeholder="Password">
       </div>
       <div class="form-group">
-        <label for="">Course</label>
-        <input type="text" name=""  class="form-control" name="course" placeholder="Enter Your Course">
-        <label for="">City</label>
-        <input type="text" name=""  class="form-control" name="city" placeholder="Enter City">
-        <label for="">Mobile Numer</label>
-        <input type="text" name=""  class="form-control" name="mob" placeholder="Enter Your Mobile No.">
-        <label for="">Address</label>
-        <input type="text" name=""  class="form-control" name="addr" placeholder="Enter Address">
-        
+            <label for="">Mobile Numer</label>
+        <input type="text"  class="form-control" name="mob" placeholder="Enter Your Mobile No.">
+           <label for="">Address</label>
+        <input type="text"  class="form-control" name="addr" placeholder="Enter Address">
+           <label for="">Course</label>
+        <input type="text"  class="form-control" name="course" placeholder="Enter Your Course">
+           <label for="">City</label>
+        <input type="text"  class="form-control" name="city" placeholder="Enter City">
+       
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
          <button type="submit" name="sign" class="btn btn-primary">Submit</button>
      </form>
+     </div>
       <?php       
-          }
-            
+          
+        }
+           
      ?>
-          </div>
+      
      </div>
 </div>
 <div class="container mt-2">

@@ -28,7 +28,7 @@ $fn='function.js';
    if(isset($_POST['sign'])){
     $query="INSERT INTO `student`(`id`,`name`,`email`,`password`,`mobile`,`course`,`city`)
    VALUES (NULL,'$name','$email','$psw','$mob','$course','$city')";
-    mysqli_query($master[0],$query);
+    mysqli_query($master[2],$query);
    }
    else{
        $msg1="cant Save Contact Admin";
@@ -38,7 +38,7 @@ $fn='function.js';
  //////////////////login////////////////////////////
  if(isset($_POST['login'])){
      $query="SELECT * FROM `student` where `email` = '$uid' and `password` = '$pwd'";
-     $data = mysqli_query($master[0],$query);
+     $data = mysqli_query($master[2],$query);
      $res = mysqli_fetch_assoc($data);
      if(empty($uid)&&($pwd)){
          $msg="Please Enter Valid <b>Email and Password</b> ";
